@@ -3,27 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Face Swap Benchmark Tool - Compare and evaluate face-swapping technologies">
     <title>Face Swap Benchmark</title>
     <link rel="stylesheet" href="/static/app.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+            --border-color: #ddd;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        button:disabled {
+            background-color: #95a5a6;
+            cursor: not-allowed;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        <h1>Face Swap Benchmark</h1>
+        <header>
+            <h1>Face Swap Benchmark</h1>
+        </header>
+        <main>
+            <!-- Dynamic content will be inserted here by JavaScript -->
+        </main>
+        <footer>
+            <p><small>&copy; 2025 Face Swap Benchmark</small></p>
+        </footer>
     </div>
+    
     <script>
       // Global error handler
       window.addEventListener('error', event => {
-        const pre = document.createElement('pre');
-        pre.style.color = 'red';
-        pre.textContent = 'Error: ' + (event.error && event.error.stack ? event.error.stack : event.message);
-        document.getElementById('app').appendChild(pre);
+        const errorContainer = document.createElement('div');
+        errorContainer.className = 'error-container';
+        errorContainer.style.backgroundColor = '#ffdddd';
+        errorContainer.style.padding = '15px';
+        errorContainer.style.margin = '15px 0';
+        errorContainer.style.borderRadius = '4px';
+        errorContainer.style.borderLeft = '5px solid #f44336';
+        
+        const errorHeading = document.createElement('h3');
+        errorHeading.textContent = 'Error Occurred';
+        errorHeading.style.margin = '0 0 10px 0';
+        errorHeading.style.color = '#f44336';
+        
+        const errorMessage = document.createElement('pre');
+        errorMessage.style.margin = '0';
+        errorMessage.style.whiteSpace = 'pre-wrap';
+        errorMessage.style.fontSize = '14px';
+        errorMessage.textContent = event.error && event.error.stack 
+          ? event.error.stack 
+          : event.message;
+        
+        errorContainer.appendChild(errorHeading);
+        errorContainer.appendChild(errorMessage);
+        document.getElementById('app').appendChild(errorContainer);
+        
         console.error('Global error:', event.error || event.message);
       });
+      
       window.addEventListener('unhandledrejection', event => {
-        const pre = document.createElement('pre');
-        pre.style.color = 'red';
-        pre.textContent = 'Unhandled Promise rejection: ' + event.reason;
-        document.getElementById('app').appendChild(pre);
+        const errorContainer = document.createElement('div');
+        errorContainer.className = 'error-container';
+        errorContainer.style.backgroundColor = '#fff3cd';
+        errorContainer.style.padding = '15px';
+        errorContainer.style.margin = '15px 0';
+        errorContainer.style.borderRadius = '4px';
+        errorContainer.style.borderLeft = '5px solid #ffc107';
+        
+        const errorHeading = document.createElement('h3');
+        errorHeading.textContent = 'Unhandled Promise Rejection';
+        errorHeading.style.margin = '0 0 10px 0';
+        errorHeading.style.color = '#856404';
+        
+        const errorMessage = document.createElement('pre');
+        errorMessage.style.margin = '0';
+        errorMessage.style.whiteSpace = 'pre-wrap';
+        errorMessage.style.fontSize = '14px';
+        errorMessage.textContent = event.reason;
+        
+        errorContainer.appendChild(errorHeading);
+        errorContainer.appendChild(errorMessage);
+        document.getElementById('app').appendChild(errorContainer);
+        
         console.error('Unhandled rejection:', event.reason);
       });
     </script>
