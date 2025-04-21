@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+click
+pydantic
+sqlalchemy
+aiofiles
+jinja2
+pillow
+python-dotenv
+openai>=0.27.0
+requests>=2.28.0
+replicate

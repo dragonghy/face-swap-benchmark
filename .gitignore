@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+.venv/
+ENV/
+env/
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Application specific files
+runs/
+.env
+*.sqlite3
+*.db
+
+# Temporary files
+/tmp/
+*.tmp
+*.temp
+/temp/
+*.log
+*.bak
+*~
+
+# Image and media files (except example/test images)
+datasets/*/*.png
+datasets/*/*.jpg
+datasets/*/*.jpeg
+datasets/*.json
+
+# Allow versioned example images
+!datasets/*/example.png
+!datasets/*/example.jpg
+
+# Jupyter notebook
+.ipynb_checkpoints
+*.ipynb

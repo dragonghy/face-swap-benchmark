@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Swap Benchmark</title>
+    <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Face Swap Benchmark</h1>
+    </div>
+    <script>
+      // Global error handler
+      window.addEventListener('error', event => {
+        const pre = document.createElement('pre');
+        pre.style.color = 'red';
+        pre.textContent = 'Error: ' + (event.error && event.error.stack ? event.error.stack : event.message);
+        document.getElementById('app').appendChild(pre);
+        console.error('Global error:', event.error || event.message);
+      });
+      window.addEventListener('unhandledrejection', event => {
+        const pre = document.createElement('pre');
+        pre.style.color = 'red';
+        pre.textContent = 'Unhandled Promise rejection: ' + event.reason;
+        document.getElementById('app').appendChild(pre);
+        console.error('Unhandled rejection:', event.reason);
+      });
+    </script>
+    <script src="/static/app.js"></script>
+</body>
+</html>
